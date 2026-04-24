@@ -24,8 +24,8 @@
       </p>
 
       <h1 class="content-item font-segment leading-[0.75] mb-2">
-        <span class="block text-[12vw] md:text-[11vw] text-white title-shadow animate-glow">OLIVER</span>
-        <span class="block text-[12vw] md:text-[11vw] text-vintage-terracota title-shadow-terracota animate-glow-delayed">VINTAGE</span>
+       <span class="block text-[20vw] md:text-[11vw] text-white title-shadow animate-glow">OLIVER</span>
+      <span class="block text-[20vw] md:text-[11vw] text-vintage-terracota title-shadow-terracota animate-glow-delayed">VINTAGE</span>
       </h1>
 
       <!-- Texto bajado: más margen superior -->
