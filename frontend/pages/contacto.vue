@@ -92,7 +92,7 @@
                 <span>Cerrado</span>
               </div>
             </div>
-            <a
+            
               href="https://www.google.com/maps/place/Oliver+Vintage/@-39.2837022,-72.2277588,21z"
               target="_blank"
               rel="noopener noreferrer"
@@ -270,6 +270,7 @@ const datos = [
 const form = reactive({ nombre: '', email: '', asunto: '', mensaje: '' })
 const errors = reactive({ nombre: '', email: '', mensaje: '' })
 const formState = ref<'idle' | 'sending' | 'success' | 'error'>('idle')
+const lastSent = ref(0) // ✅ rate limiting
 
 function validate(field: 'nombre' | 'email' | 'mensaje') {
   if (field === 'nombre')  errors.nombre  = form.nombre.trim()  ? '' : 'El nombre es obligatorio'
@@ -289,11 +290,18 @@ function resetForm() {
 }
 
 async function submitForm() {
+  // ✅ Bloquea envíos repetidos en menos de 30 segundos
+  const now = Date.now()
+  if (now - lastSent.value < 30000) {
+    alert('Por favor espera unos segundos antes de enviar otro mensaje.')
+    return
+  }
+
   if (!validateAll()) return
   formState.value = 'sending'
+  lastSent.value = now
 
   try {
-    // EmailJS — reemplaza con tus credenciales en https://www.emailjs.com/
     const SERVICE_ID  = 'service_dd9bao8'
     const TEMPLATE_ID = 'template_lo608of'
     const PUBLIC_KEY  = 'iJY_fRXMdVindDMgz'

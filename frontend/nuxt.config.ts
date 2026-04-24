@@ -20,6 +20,25 @@ export default defineNuxtConfig({
     }
   },
 
+  // ✅ Headers de seguridad
+  routeRules: {
+    '/**': {
+      headers: {
+        'X-Frame-Options': 'DENY',
+        'X-Content-Type-Options': 'nosniff',
+        'Referrer-Policy': 'strict-origin-when-cross-origin',
+        'Content-Security-Policy': [
+          "default-src 'self'",
+          "script-src 'self' 'unsafe-inline'",
+          "connect-src 'self' https://api.emailjs.com",
+          "img-src 'self' data: https:",
+          "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+          "font-src 'self' https://fonts.gstatic.com"
+        ].join('; ')
+      }
+    }
+  },
+
   app: {
     head: {
       charset: 'utf-8',
