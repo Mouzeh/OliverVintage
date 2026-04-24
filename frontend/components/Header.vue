@@ -78,8 +78,6 @@ const searchOpen = ref(false)
 
 const navItems = [
   { path: '/', label: 'Inicio' },
-  { path: '/catalogo', label: 'Catálogo' },
-  { path: '/categorias', label: 'Categorías' },
   { path: '/nosotros', label: 'Nosotros' },
   { path: '/contacto', label: 'Contacto' }
 ]

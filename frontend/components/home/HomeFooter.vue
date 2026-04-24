@@ -12,7 +12,7 @@
               <rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/>
             </svg>
           </a>
-          <a href="#" aria-label="Facebook" class="social-icon">
+          <a href="https://www.facebook.com/profile.php?id=100063597219507&locale=fy_NL" aria-label="Facebook" class="social-icon">
             <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24">
               <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
             </svg>
@@ -30,9 +30,7 @@
           <h4>Tienda</h4>
           <ul>
             <li><NuxtLink to="/productos">Todos los productos</NuxtLink></li>
-            <li><NuxtLink to="/categorias/ropa-americana">Ropa Americana</NuxtLink></li>
-            <li><NuxtLink to="/categorias/moda-tecnica">Moda Técnica</NuxtLink></li>
-            <li><NuxtLink to="/categorias/formal-gala">Formal & Gala</NuxtLink></li>
+
           </ul>
         </div>
         <div class="footer__col">
@@ -51,19 +49,19 @@
               <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24">
                 <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
               </svg>
-              Chile
+              Villarrica, Chile
             </li>
             <li>
               <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24">
                 <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16.92z"/>
               </svg>
-              +56 9 XXXX XXXX
+              +56 9 20306235
             </li>
             <li>
               <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24">
                 <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
               </svg>
-              contacto@ropamericana.cl
+              olivervintagecl@gmail.com
             </li>
           </ul>
         </div>
@@ -94,27 +92,16 @@
                 <circle cx="20" cy="10" r="5" fill="#F79E1B"/>
               </svg>
             </div>
-            <div class="payment-icon amex">
-              <svg viewBox="0 0 32 20" fill="none">
-                <rect width="32" height="20" rx="2" fill="#006FCF"/>
-                <text x="8" y="13" fill="white" font-size="8" font-weight="bold">AMEX</text>
-              </svg>
-            </div>
-            <div class="payment-icon paypal">
-              <svg viewBox="0 0 32 20" fill="none">
-                <rect width="32" height="20" rx="2" fill="#009CDE"/>
-                <text x="7" y="13" fill="white" font-size="7" font-weight="bold">PayPal</text>
-              </svg>
-            </div>
+      
           </div>
-          <p class="payment-text">Pago 100% seguro</p>
+          <p class="payment-text">Todo medio de pago</p>
         </div>
       </div>
     </div>
 
     <div class="footer__bottom">
-      <span>© {{ new Date().getFullYear() }} Ropa Americana — Todos los derechos reservados.</span>
-      <span class="footer__credit">Desarrollado por <a href="https://surestudios.cl" target="_blank">SURE Studios</a></span>
+      <span>© {{ new Date().getFullYear() }} Oliver Vintage — Todos los derechos reservados.</span>
+      <span class="footer__credit">Desarrollado por <a href="https://mouzeh.space" target="_blank">Mouzeh</a></span>
     </div>
   </footer>
 </template>
