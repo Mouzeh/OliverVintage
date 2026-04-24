@@ -294,9 +294,9 @@ async function submitForm() {
 
   try {
     // EmailJS — reemplaza con tus credenciales en https://www.emailjs.com/
-    const SERVICE_ID  = 'TU_SERVICE_ID'   // ← reemplaza
-    const TEMPLATE_ID = 'TU_TEMPLATE_ID'  // ← reemplaza
-    const PUBLIC_KEY  = 'TU_PUBLIC_KEY'   // ← reemplaza
+    const SERVICE_ID  = 'service_dd9bao8'
+    const TEMPLATE_ID = 'template_lo608of'
+    const PUBLIC_KEY  = 'iJY_fRXMdVindDMgz'
 
     const res = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
       method: 'POST',
