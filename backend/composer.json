@@ -1,0 +1,42 @@
+{
+  "name": "olivervintage/backend",
+  "type": "project",
+  "description": "WordPress Bedrock backend for Oliver Vintage",
+  "license": "MIT",
+  "require": {
+    "php": "^8.2",
+    "composer/installers": "^2.2",
+    "vlucas/phpdotenv": "^5.5",
+    "oscarotero/env": "^2.1",
+    "roots/bedrock-installer": "^1.0",
+    "roots/wordpress": "^6.4",
+    "wp-graphql/wp-graphql": "^1.14",
+    "wpengine/advanced-custom-fields-pro": "^6.0"
+  },
+  "require-dev": {
+    "squizlabs/php_codesniffer": "^3.7",
+    "roave/security-advisories": "dev-latest"
+  },
+  "config": {
+    "optimize-autoloader": true,
+    "preferred-install": "dist",
+    "allow-plugins": true,
+    "platform": {
+      "php": "8.2"
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "extra": {
+    "installer-paths": {
+      "web/app/mu-plugins/{$name}/": ["type:wordpress-muplugin"],
+      "web/app/plugins/{$name}/": ["type:wordpress-plugin"],
+      "web/app/themes/{$name}/": ["type:wordpress-theme"]
+    }
+  },
+  "autoload": {
+    "psr-4": {
+      "OliverVintage\\": "src/"
+    }
+  }
+}

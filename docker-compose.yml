@@ -1,0 +1,100 @@
+version: '3.9'
+
+services:
+  # Database - MariaDB 11+
+  db-store:
+    image: mariadb:11
+    container_name: oliver-vintage-db
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - db-data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    networks:
+      - oliver-network
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # WordPress Backend (Bedrock)
+  wp-engine:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: oliver-vintage-wp
+    restart: unless-stopped
+    environment:
+      WP_ENV: ${WP_ENV:-development}
+      WP_HOME: ${WP_HOME:-http://wp.olivervintage.test}
+      WP_SITEURL: ${WP_SITEURL:-http://wp.olivervintage.test/wp}
+      DB_HOST: db-store:3306
+      DB_NAME: ${DB_DATABASE}
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+      WP_GRAPHQL_URL: ${WP_GRAPHQL_URL:-http://wp.olivervintage.test/wp/graphql}
+    volumes:
+      - ./backend:/app
+      - wp-uploads:/app/web/app/uploads
+    depends_on:
+      db-store:
+        condition: service_healthy
+    ports:
+      - "8080:80"
+    networks:
+      - oliver-network
+
+  # Nuxt 3 Frontend
+  nuxt-app:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: oliver-vintage-nuxt
+    restart: unless-stopped
+    environment:
+      NODE_ENV: ${NODE_ENV:-development}
+      WP_GRAPHQL_URL: ${WP_GRAPHQL_URL:-http://wp.olivervintage.test/wp/graphql}
+      NUXT_PUBLIC_SITE_URL: ${NUXT_PUBLIC_SITE_URL:-http://olivervintage.test}
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+      - /app/.nuxt
+    ports:
+      - "3000:3000"
+    depends_on:
+      - wp-engine
+    networks:
+      - oliver-network
+
+  # Nginx Proxy
+  nginx-proxy:
+    image: nginx:alpine
+    container_name: oliver-vintage-nginx
+    restart: unless-stopped
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx/conf.d:/etc/nginx/conf.d:ro
+    ports:
+      - "80:80"
+      - "443:443"
+    depends_on:
+      - wp-engine
+      - nuxt-app
+    networks:
+      - oliver-network
+
+volumes:
+  db-data:
+    driver: local
+  wp-uploads:
+    driver: local
+
+networks:
+  oliver-network:
+    driver: bridge
