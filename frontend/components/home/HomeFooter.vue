@@ -1,9 +1,7 @@
 <template>
-  <footer class="footer" ref="footerRef">
+  <footer class="footer">
     <div class="footer__top">
-
-      <!-- BRAND -->
-      <div class="footer__brand" :class="{ visible: inView }">
+      <div class="footer__brand">
         <div class="footer__logo">Ropa Americana</div>
         <p class="footer__tagline">
           Prendas originales importadas.<br />Moda que habla por sí sola.
@@ -27,15 +25,15 @@
         </div>
       </div>
 
-      <!-- LINKS -->
-      <div class="footer__links" :class="{ visible: inView }">
-        <div class="footer__col" :class="{ visible: inView }" style="transition-delay: 0.15s">
+      <div class="footer__links">
+        <div class="footer__col">
           <h4>Tienda</h4>
           <ul>
             <li><NuxtLink to="/productos">Todos los productos</NuxtLink></li>
+
           </ul>
         </div>
-        <div class="footer__col" :class="{ visible: inView }" style="transition-delay: 0.25s">
+        <div class="footer__col">
           <h4>Información</h4>
           <ul>
             <li><NuxtLink to="/nosotros">Nosotros</NuxtLink></li>
@@ -44,7 +42,7 @@
             <li><NuxtLink to="/contacto">Contacto</NuxtLink></li>
           </ul>
         </div>
-        <div class="footer__col" :class="{ visible: inView }" style="transition-delay: 0.35s">
+        <div class="footer__col">
           <h4>Contacto</h4>
           <ul class="footer__contact">
             <li>
@@ -69,8 +67,8 @@
         </div>
       </div>
 
-      <!-- MEDIOS DE PAGO -->
-      <div class="footer__payment" :class="{ visible: inView }">
+      <!-- Nueva sección de Medios de Pago -->
+      <div class="footer__payment">
         <h4>Medios de Pago</h4>
         <div class="payment-methods">
           <div class="payment-row">
@@ -94,42 +92,21 @@
                 <circle cx="20" cy="10" r="5" fill="#F79E1B"/>
               </svg>
             </div>
+      
           </div>
           <p class="payment-text">Todo medio de pago</p>
         </div>
       </div>
-
     </div>
 
-    <!-- BOTTOM BAR -->
-    <div class="footer__bottom" :class="{ visible: inView }">
+    <div class="footer__bottom">
       <span>© {{ new Date().getFullYear() }} Oliver Vintage — Todos los derechos reservados.</span>
       <span class="footer__credit">Desarrollado por <a href="https://mouzeh.space" target="_blank">Mouzeh</a></span>
     </div>
   </footer>
 </template>
 
-<script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue'
-
-const footerRef = ref<HTMLElement | null>(null)
-const inView    = ref(false)
-let observer: IntersectionObserver | null = null
-
-onMounted(() => {
-  observer = new IntersectionObserver(
-    ([e]) => { if (e.isIntersecting) inView.value = true },
-    { threshold: 0.06 }
-  )
-  if (footerRef.value) observer.observe(footerRef.value)
-})
-onUnmounted(() => observer?.disconnect())
-</script>
-
 <style scoped>
-/* ══════════════════════════════
-   BASE
-   ══════════════════════════════ */
 .footer {
   background: #111;
   color: #d1d5db;
@@ -145,19 +122,12 @@ onUnmounted(() => observer?.disconnect())
   margin: 0 auto;
 }
 
-/* ══════════════════════════════
-   BRAND
-   ══════════════════════════════ */
 .footer__brand {
   flex: 1;
   min-width: 200px;
   max-width: 260px;
-
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.85s ease 0s, transform 0.85s cubic-bezier(0.22,1,0.36,1) 0s;
+  animation: fadeInUp 0.8s ease-out;
 }
-.footer__brand.visible { opacity: 1; transform: translateY(0); }
 
 .footer__logo {
   font-size: 1.25rem;
@@ -190,9 +160,15 @@ onUnmounted(() => observer?.disconnect())
   border-radius: 50%;
   color: #9ca3af;
   text-decoration: none;
-  transition: border-color 0.3s ease, color 0.3s ease,
-              background 0.3s ease, transform 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: fadeInUp 0.8s ease-out;
+  animation-fill-mode: both;
 }
+
+.social-icon:nth-child(1) { animation-delay: 0.1s; }
+.social-icon:nth-child(2) { animation-delay: 0.2s; }
+.social-icon:nth-child(3) { animation-delay: 0.3s; }
+
 .social-icon:hover {
   border-color: #fff;
   color: #fff;
@@ -200,22 +176,23 @@ onUnmounted(() => observer?.disconnect())
   transform: translateY(-3px);
 }
 
-/* ══════════════════════════════
-   LINKS
-   ══════════════════════════════ */
 .footer__links {
   display: flex;
   flex-wrap: wrap;
   gap: 2.5rem;
   flex: 2;
+  animation: fadeInUp 0.8s ease-out 0.2s;
+  animation-fill-mode: both;
 }
 
 .footer__col {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.85s ease, transform 0.85s cubic-bezier(0.22,1,0.36,1);
+  animation: fadeInUp 0.8s ease-out;
+  animation-fill-mode: both;
 }
-.footer__col.visible { opacity: 1; transform: translateY(0); }
+
+.footer__col:nth-child(1) { animation-delay: 0.3s; }
+.footer__col:nth-child(2) { animation-delay: 0.4s; }
+.footer__col:nth-child(3) { animation-delay: 0.5s; }
 
 .footer__col h4 {
   font-size: 0.65rem;
@@ -240,7 +217,7 @@ onUnmounted(() => observer?.disconnect())
   font-size: 0.83rem;
   color: #6b7280;
   text-decoration: none;
-  transition: color 0.3s ease, transform 0.3s ease;
+  transition: all 0.3s ease;
   display: flex;
   align-items: center;
   gap: 0.4rem;
@@ -255,26 +232,25 @@ onUnmounted(() => observer?.disconnect())
   color: #6b7280;
   transition: color 0.3s ease;
 }
-.footer__contact li:hover { color: #e5e7eb; }
+
+.footer__contact li:hover {
+  color: #e5e7eb;
+}
+
 .footer__contact svg {
   flex-shrink: 0;
   color: #4b5563;
   transition: color 0.3s ease;
 }
 
-/* ══════════════════════════════
-   MEDIOS DE PAGO
-   ══════════════════════════════ */
+/* Sección de Medios de Pago */
 .footer__payment {
   flex: 1;
   min-width: 220px;
   max-width: 280px;
-
-  opacity: 0;
-  transform: translateX(32px);
-  transition: opacity 0.9s ease 0.45s, transform 0.9s cubic-bezier(0.22,1,0.36,1) 0.45s;
+  animation: fadeInRight 0.8s ease-out 0.6s;
+  animation-fill-mode: both;
 }
-.footer__payment.visible { opacity: 1; transform: translateX(0); }
 
 .footer__payment h4 {
   font-size: 0.65rem;
@@ -291,20 +267,23 @@ onUnmounted(() => observer?.disconnect())
   gap: 1rem;
 }
 
-.payment-row { margin-bottom: 0.5rem; }
+.payment-row {
+  margin-bottom: 0.5rem;
+}
 
 .payment-item {
   border-radius: 8px;
   overflow: hidden;
   background: #1a1a1a;
   padding: 0.5rem;
+  transition: all 0.3s ease;
   border: 1px solid #2a2a2a;
-  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
+
 .payment-item:hover {
   transform: scale(1.05);
   border-color: #4a4a4a;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
 }
 
 .payment-image {
@@ -326,18 +305,24 @@ onUnmounted(() => observer?.disconnect())
   height: 30px;
   border-radius: 4px;
   overflow: hidden;
-  transition: opacity 0.3s ease, filter 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  transition: all 0.3s ease;
   cursor: pointer;
   opacity: 0.7;
   filter: grayscale(50%);
 }
+
 .payment-icon:hover {
   opacity: 1;
   filter: grayscale(0%);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
-.payment-icon svg { width: 100%; height: 100%; display: block; }
+
+.payment-icon svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
 
 .payment-text {
   font-size: 0.7rem;
@@ -347,9 +332,29 @@ onUnmounted(() => observer?.disconnect())
   letter-spacing: 0.05em;
 }
 
-/* ══════════════════════════════
-   BOTTOM BAR
-   ══════════════════════════════ */
+/* Animaciones */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 .footer__bottom {
   border-top: 1px solid #1f2937;
   padding: 1.2rem 2rem;
@@ -362,12 +367,9 @@ onUnmounted(() => observer?.disconnect())
   gap: 0.5rem;
   font-size: 0.75rem;
   color: #4b5563;
-
-  opacity: 0;
-  transform: translateY(12px);
-  transition: opacity 0.7s ease 0.7s, transform 0.7s ease 0.7s;
+  animation: fadeInUp 0.8s ease-out 0.8s;
+  animation-fill-mode: both;
 }
-.footer__bottom.visible { opacity: 1; transform: translateY(0); }
 
 .footer__credit a {
   color: #6b7280;
@@ -375,38 +377,58 @@ onUnmounted(() => observer?.disconnect())
   transition: color 0.3s ease;
   position: relative;
 }
+
 .footer__credit a::after {
   content: '';
   position: absolute;
-  bottom: -2px; left: 0;
-  width: 0; height: 1px;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
   background: #d1d5db;
   transition: width 0.3s ease;
 }
-.footer__credit a:hover { color: #d1d5db; }
-.footer__credit a:hover::after { width: 100%; }
 
-/* ══════════════════════════════
-   RESPONSIVE
-   ══════════════════════════════ */
+.footer__credit a:hover {
+  color: #d1d5db;
+}
+
+.footer__credit a:hover::after {
+  width: 100%;
+}
+
+/* Responsive */
 @media (max-width: 1024px) {
-  .footer__top { gap: 2rem; }
-  .footer__payment { max-width: 100%; margin-top: 1rem; }
+  .footer__top {
+    gap: 2rem;
+  }
+  
+  .footer__payment {
+    max-width: 100%;
+    margin-top: 1rem;
+  }
 }
 
 @media (max-width: 640px) {
-  .footer__brand { max-width: 100%; }
-  .footer__bottom { flex-direction: column; text-align: center; }
-  .footer__top { padding: 2.5rem 1.5rem 1.5rem; }
-  .footer__links { gap: 1.5rem; }
-  .payment-icons { justify-content: flex-start; }
-}
-
-/* Accesibilidad */
-@media (prefers-reduced-motion: reduce) {
-  .footer__brand, .footer__col, .footer__payment, .footer__bottom {
-    transition: opacity 0.3s ease !important;
-    transform: none !important;
+  .footer__brand {
+    max-width: 100%;
+  }
+  
+  .footer__bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .footer__top {
+    padding: 2.5rem 1.5rem 1.5rem;
+  }
+  
+  .footer__links {
+    gap: 1.5rem;
+  }
+  
+  .payment-icons {
+    justify-content: flex-start;
   }
 }
 </style>
