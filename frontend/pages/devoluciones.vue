@@ -160,10 +160,14 @@
     </section>
 
   </div>
+
+  <!-- FOOTER -->
+  <AppFooter />
 </template>
 
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue'
+import AppFooter from '~/components/AppFooter.vue'
 
 const pageRef = ref<HTMLElement | null>(null)
 const inView  = ref(false)
