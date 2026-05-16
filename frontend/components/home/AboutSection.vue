@@ -31,7 +31,7 @@
           <img src="/images/modacircular/circular4.jpeg" alt="Estilo atemporal" loading="lazy" />
         </figure>
 
-        <div class="story__year" :class="{ visible: inView }">2020</div>
+        <div class="story__year" :class="{ visible: inView }">MODA</div>
 
       </div>
 

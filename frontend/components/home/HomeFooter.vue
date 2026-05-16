@@ -29,7 +29,7 @@
         <div class="footer__col">
           <h4>Tienda</h4>
           <ul>
-            <li><NuxtLink to="/productos">Todos los productos</NuxtLink></li>
+            <li><NuxtLink to="https://www.instagram.com/olivervintagecl/">Todos los productos</NuxtLink></li>
 
           </ul>
         </div>
@@ -37,7 +37,6 @@
           <h4>Información</h4>
           <ul>
             <li><NuxtLink to="/nosotros">Nosotros</NuxtLink></li>
-            <li><NuxtLink to="/envios">Envíos</NuxtLink></li>
             <li><NuxtLink to="/devoluciones">Devoluciones</NuxtLink></li>
             <li><NuxtLink to="/contacto">Contacto</NuxtLink></li>
           </ul>

@@ -35,7 +35,7 @@
 
       <!-- Botones rediseñados -->
       <div class="content-item flex flex-col sm:flex-row gap-6 justify-center">
-        <NuxtLink to="/catalogo" class="btn-modern btn-modern-primary group">
+        <NuxtLink to="https://www.instagram.com/olivervintagecl/" class="btn-modern btn-modern-primary group">
           <span>Ver Catálogo</span>
           <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
