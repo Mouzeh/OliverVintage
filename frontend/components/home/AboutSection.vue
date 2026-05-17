@@ -84,7 +84,7 @@
 
         <div class="story__figures">
           <div class="story__figure">
-            <strong>+2K</strong>
+            <strong>+10K</strong>
             <small>prendas<br>rescatadas</small>
           </div>
           <div class="story__figure">
