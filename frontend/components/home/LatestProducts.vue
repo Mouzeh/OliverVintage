@@ -1,5 +1,5 @@
 <template>
-  <NuxtLink to="/catalogo" class="banner group">
+  <NuxtLink to="https://www.instagram.com/olivervintagecl/" external target="_blank" rel="noopener noreferrer" class="banner group">
     <div class="banner-bg">
       <img src="/images/recienllegado.jpeg" alt="Recién Llegados" />
       <div class="banner-overlay"></div>
