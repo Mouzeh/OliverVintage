@@ -19,10 +19,13 @@
 
       <!-- IMAGEN 1 — entra desde la derecha al hacer scroll -->
       <div class="dv-hero__img-wrap" :class="{ visible: inView }">
-        <img
+        <NuxtImg
           src="/images/imagenesig/1.png"
           alt="Oliver Vintage"
           class="dv-hero__img"
+          preset="hero"
+          loading="eager"
+          fetchpriority="high"
         />
         <div class="dv-hero__img-frame" />
       </div>
@@ -84,10 +87,12 @@
 
           <!-- IMAGEN 2 — grande, ocupa el espacio vacío de la columna izquierda -->
           <div class="dv-img2-wrap" :class="{ visible: inView }">
-            <img
+            <NuxtImg
               src="/images/imagenesig/2.png"
               alt="Oliver Vintage prendas"
               class="dv-img2"
+              preset="product"
+              loading="lazy"
             />
             <div class="dv-img2__badge">
               <span>♻</span>

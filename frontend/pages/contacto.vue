@@ -4,7 +4,14 @@
     <!-- ░░ HERO ░░ -->
     <section class="ct-hero" ref="heroRef" :class="{ visible: heroVisible }">
       <div class="ct-hero__img-wrap">
-        <img src="/images/hero.png" alt="Oliver Vintage — Local" class="ct-hero__img" />
+       <NuxtImg
+        src="/images/hero.png"
+        alt="Oliver Vintage — Local"
+        class="ct-hero__img"
+        preset="hero"
+        loading="eager"
+        fetchpriority="high"
+      />
         <div class="ct-hero__overlay" />
       </div>
       <div class="ct-hero__content">
