@@ -1,15 +1,11 @@
 <template>
   <div id="app" class="min-h-screen bg-vintage-cream">
     <NuxtLoadingIndicator color="#C06E52" />
-    
     <Header />
-    
     <main>
       <NuxtPage />
     </main>
-    
     <Footer />
-
     
       href="https://www.instagram.com/olivervintagecl/"
       target="_blank"
@@ -85,7 +81,6 @@ let lenis: any = null
 
 onMounted(async () => {
   const { default: Lenis } = await import('lenis')
-  
   lenis = new Lenis({
     duration: 1.2,
     easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -93,12 +88,10 @@ onMounted(async () => {
     gestureOrientation: 'vertical',
     smoothWheel: true,
   })
-
   function raf(time: number) {
     lenis?.raf(time)
     requestAnimationFrame(raf)
   }
-
   requestAnimationFrame(raf)
 })
 
