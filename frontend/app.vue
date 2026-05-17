@@ -28,7 +28,6 @@
 <script setup lang="ts">
 import { onMounted, onBeforeUnmount } from 'vue'
 
-// ✅ Schema markup para SEO local
 useHead({
   script: [
     {
