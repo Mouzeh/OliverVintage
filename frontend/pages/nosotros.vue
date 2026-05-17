@@ -33,12 +33,14 @@
       <!-- Imagen hero -->
       <div class="ns-hero__img-wrap" :class="{ visible: inView }">
         <div class="ns-hero__img-inner">
-          <img
-            src="/images/imagenesig/1.png"
-            alt="Oliver Vintage — tienda de ropa americana y vintage en Villarrica, Araucanía"
-            class="ns-hero__img"
-            loading="eager"
-          />
+          <NuxtImg
+          src="/images/imagenesig/1.png"
+          alt="Oliver Vintage — tienda de ropa americana y vintage en Villarrica, Araucanía"
+          class="ns-hero__img"
+          preset="hero"
+          loading="eager"
+          fetchpriority="high"
+        />
           <div class="ns-hero__img-shine" aria-hidden="true" />
         </div>
         <div class="ns-hero__img-frame" aria-hidden="true" />
@@ -154,12 +156,13 @@
 
           <!-- Imagen 2 -->
           <div class="ns-img2-wrap" :class="{ visible: inView }">
-            <img
-              src="/images/imagenesig/2.png"
-              alt="Ropa americana y vintage en Oliver Vintage Villarrica — moda circular Araucanía"
-              class="ns-img2"
-              loading="lazy"
-            />
+            <NuxtImg
+            src="/images/imagenesig/2.png"
+            alt="Ropa americana y vintage en Oliver Vintage Villarrica — moda circular Araucanía"
+            class="ns-img2"
+            preset="product"
+            loading="lazy"
+          />
             <div class="ns-img2__overlay" aria-hidden="true" />
             <div class="ns-img2__badge">
               <span aria-hidden="true">♻</span>

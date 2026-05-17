@@ -103,7 +103,13 @@
 
           <div class="map-polaroid__frame">
             <a href="https://www.google.com/maps/place/Oliver+Vintage/@-39.2837022,-72.2277588,21z" target="_blank" rel="noopener noreferrer" class="map-img-link">
-              <img src="/images/Modelos/OLIVADIRECCIÓN.png" alt="Ubicación Oliver Vintage" class="map-static-img" />
+              <NuxtImg 
+  src="/images/Modelos/OLIVADIRECCIÓN.png" 
+  alt="Ubicación Oliver Vintage" 
+  class="map-static-img"
+  preset="product"
+  loading="lazy"
+/>
               <!-- Pin animado sobre la imagen -->
               <div class="map-main-pin">
                 <div class="map-pin__pulse"></div>

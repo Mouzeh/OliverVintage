@@ -72,7 +72,16 @@
         <div class="payment-methods">
           <div class="payment-row">
             <div class="payment-item">
-              <img src="/images/mediosdepago/images-7.png" alt="Medios de pago" class="payment-image" />
+             <NuxtImg 
+          src="/images/mediosdepago/images-7.png" 
+          alt="Medios de pago" 
+          class="payment-image"
+          format="webp"
+          quality="80"
+          width="280"
+          height="80"
+          loading="lazy"
+          />
             </div>
           </div>
           <div class="payment-icons">

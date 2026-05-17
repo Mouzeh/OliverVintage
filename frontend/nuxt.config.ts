@@ -10,8 +10,53 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
     '@pinia/nuxt',
     '@vueuse/nuxt',
-    '@nuxt/eslint'
+    '@nuxt/eslint',
+    '@nuxt/image' // ✅ agregado
   ],
+
+  // ✅ Configuración de imágenes
+  image: {
+    format: ['webp', 'avif'],
+    quality: 80,
+    screens: {
+      xs: 320,
+      sm: 640,
+      md: 768,
+      lg: 1024,
+      xl: 1280,
+      xxl: 1536
+    },
+    domains: [
+      'wp.olivervintage.cl',
+      'www.olivervintage.cl'
+    ],
+    presets: {
+      product: {
+        modifiers: {
+          format: 'webp',
+          quality: '75',
+          width: 600,
+          height: 800
+        }
+      },
+      hero: {
+        modifiers: {
+          format: 'webp',
+          quality: '85',
+          width: 1280,
+          height: 720
+        }
+      },
+      thumbnail: {
+        modifiers: {
+          format: 'webp',
+          quality: '70',
+          width: 300,
+          height: 400
+        }
+      }
+    }
+  },
 
   runtimeConfig: {
     public: {
@@ -20,7 +65,7 @@ export default defineNuxtConfig({
     }
   },
 
-  // ✅ Headers de seguridad
+  // ✅ Headers de seguridad corregidos
   routeRules: {
     '/**': {
       headers: {
@@ -30,8 +75,10 @@ export default defineNuxtConfig({
         'Content-Security-Policy': [
           "default-src 'self'",
           "script-src 'self' 'unsafe-inline'",
-          "connect-src 'self' https://api.emailjs.com",
-          "img-src 'self' data: https:",
+          // ✅ agregado wp.olivervintage.cl para GraphQL
+          "connect-src 'self' https://api.emailjs.com https://wp.olivervintage.cl",
+          // ✅ agregado wp.olivervintage.cl para imágenes desde WordPress
+          "img-src 'self' data: https: https://wp.olivervintage.cl",
           "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
           "font-src 'self' https://fonts.gstatic.com"
         ].join('; ')
@@ -63,6 +110,9 @@ export default defineNuxtConfig({
         { rel: 'icon', type: 'image/png', href: '/favicon.png' },
         { rel: 'apple-touch-icon', href: '/favicon.png' },
         { rel: 'canonical', href: 'https://www.olivervintage.cl' },
+        // ✅ preconnect para Google Fonts mejora velocidad de carga
+        { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
+        { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' }
       ]
     }
   },
@@ -75,9 +125,14 @@ export default defineNuxtConfig({
   nitro: {
     compressPublicAssets: true,
     minify: true,
+    // ✅ agregado para mejor cache de assets estáticos
+    routeRules: {
+      '/images/**': { headers: { 'cache-control': 'public, max-age=31536000, immutable' } },
+      '/_nuxt/**': { headers: { 'cache-control': 'public, max-age=31536000, immutable' } }
+    },
     prerender: {
       failOnError: false,
-      routes: []
+      routes: ['/'] // ✅ al menos prerenderizar la home
     }
   },
 

@@ -3,11 +3,14 @@
     
     <!-- Foto de fondo -->
     <div class="absolute inset-0">
-      <img 
-        src="/images/hero.png" 
-        alt="Oliver Vintage Store"
-        class="w-full h-full object-cover opacity-60"
-      />
+      <NuxtImg 
+  src="/images/hero.png" 
+  alt="Oliver Vintage Store"
+  class="w-full h-full object-cover opacity-60"
+  preset="hero"
+  loading="eager"
+  fetchpriority="high"
+/>
     </div>
 
     <!-- Capa de niebla oscura animada -->

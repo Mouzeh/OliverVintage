@@ -19,10 +19,14 @@
           @mouseenter="pauseAuto"
           @mouseleave="resumeAuto"
         >
-          <img
+          <NuxtImg
             :src="item.image"
             :alt="item.label"
             class="slide-img"
+            format="webp"
+            quality="80"
+            width="1200"
+            height="560"
             loading="lazy"
           />
           <div class="slide-overlay" />
@@ -552,5 +556,16 @@ onBeforeUnmount(() => {
 @media (max-width: 480px) {
   .slide-content     { padding: 1.25rem 1rem; }
   .carousel-wrapper  { border-radius: 12px; }
+}
+
+/* ← AQUÍ, al final del todo */
+.slide-img img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  transition: transform 1s ease;
 }
 </style>

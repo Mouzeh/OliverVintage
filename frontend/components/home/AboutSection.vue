@@ -1,43 +1,56 @@
 <template>
   <section class="story" ref="sectionRef">
 
-    <!-- Número de sección editorial -->
     <div class="story__section-num" :class="{ visible: inView }">02</div>
 
     <div class="story__inner">
 
-      <!-- ════════════════════════════
-           GALERÍA — POLAROIDS APILADOS
-           ════════════════════════════ -->
       <div class="story__photos" :class="{ visible: inView }">
 
         <figure class="photo photo--back" style="--rot: 4.5deg; --delay: 0s">
-          <img src="/images/modacircular/circular2.jpeg" alt="Prenda vintage" loading="lazy" />
+          <NuxtImg 
+            src="/images/modacircular/circular2.jpeg" 
+            alt="Prenda vintage" 
+            loading="lazy"
+            preset="product"
+          />
           <figcaption>Oliver Vintage — 2026</figcaption>
         </figure>
 
         <figure class="photo photo--main" style="--rot: -2deg; --delay: 0.18s">
-          <img src="/images/modacircular/ciruclar.jpeg" alt="Historia de moda circular" loading="lazy" />
+          <NuxtImg 
+            src="/images/modacircular/ciruclar.jpeg" 
+            alt="Historia de moda circular" 
+            loading="lazy"
+            preset="product"
+          />
           <figcaption>Moda circular</figcaption>
           <div class="photo__tape"></div>
         </figure>
 
         <figure class="photo photo--top" style="--rot: 6deg; --delay: 0.34s">
-          <img src="/images/modacircular/circular3.jpeg" alt="Selección" loading="lazy" />
+          <NuxtImg 
+            src="/images/modacircular/circular3.jpeg" 
+            alt="Selección" 
+            loading="lazy"
+            preset="thumbnail"
+          />
           <figcaption>Selección cuidadosa</figcaption>
         </figure>
 
         <figure class="photo photo--corner" style="--rot: -5deg; --delay: 0.5s">
-          <img src="/images/modacircular/circular4.jpeg" alt="Estilo atemporal" loading="lazy" />
+          <NuxtImg 
+            src="/images/modacircular/circular4.jpeg" 
+            alt="Estilo atemporal" 
+            loading="lazy"
+            preset="thumbnail"
+          />
         </figure>
 
         <div class="story__year" :class="{ visible: inView }">MODA</div>
 
       </div>
 
-      <!-- ════════════════════════════
-           TEXTO — EDITORIAL
-           ════════════════════════════ -->
       <div class="story__text" :class="{ visible: inView }">
 
         <header class="story__header">
@@ -152,7 +165,6 @@ onUnmounted(() => observer?.disconnect())
   pointer-events: none;
 }
 
-/* Número de sección gigante */
 .story__section-num {
   position: absolute;
   top: -0.15em;
@@ -175,7 +187,6 @@ onUnmounted(() => observer?.disconnect())
   transform: translateX(0);
 }
 
-/* Layout */
 .story__inner {
   position: relative;
   z-index: 1;
@@ -195,7 +206,6 @@ onUnmounted(() => observer?.disconnect())
   }
 }
 
-/* ── Galería ── */
 .story__photos {
   position: relative;
   height: 520px;
@@ -222,7 +232,6 @@ onUnmounted(() => observer?.disconnect())
   transform: translateY(0);
 }
 
-/* Polaroid base */
 .photo {
   position: absolute;
   background: var(--paper);
@@ -233,8 +242,6 @@ onUnmounted(() => observer?.disconnect())
     inset 0 1px 0 rgba(255,255,255,0.12);
   border-radius: 2px;
   cursor: pointer;
-
-  /* Efecto cuarto oscuro: aparece de negro a color */
   opacity: 0;
   filter: brightness(0.08) contrast(1.5);
   transform: rotate(var(--rot, 0deg)) scale(0.88) translateY(28px);
@@ -300,7 +307,6 @@ figcaption {
 .photo--top    { width: 175px; height: 210px; top: 0;     right: 10px; z-index: 4; }
 .photo--corner { width: 155px; height: 185px; bottom: 10px; right: 30px; z-index: 2; }
 
-/* ── Texto ── */
 .story__text {
   padding-left: 4rem;
   opacity: 0;
@@ -421,7 +427,6 @@ figcaption {
   gap: 1.1rem;
 }
 
-/* ── Responsive ── */
 @media (max-width: 860px) {
   .story__photos { height: 400px; max-width: 420px; margin: 0 auto; }
   .story__text   { padding-left: 0; transform: translateY(30px); }
