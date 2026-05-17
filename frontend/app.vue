@@ -10,7 +10,7 @@
     
     <Footer />
 
-    <a
+    
       href="https://www.instagram.com/olivervintagecl/"
       target="_blank"
       rel="noopener noreferrer"
@@ -27,6 +27,60 @@
 
 <script setup lang="ts">
 import { onMounted, onBeforeUnmount } from 'vue'
+
+// ✅ Schema markup para SEO local
+useHead({
+  script: [
+    {
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'ClothingStore',
+        name: 'Oliver Vintage',
+        description: 'Tienda de moda circular y ropa americana en Villarrica, Chile. Prendas únicas, sostenibles y con estilo.',
+        url: 'https://www.olivervintage.cl',
+        logo: 'https://www.olivervintage.cl/favicon.png',
+        image: 'https://www.olivervintage.cl/images/hero.png',
+        telephone: '+56920306235',
+        email: 'olivervintagecl@gmail.com',
+        address: {
+          '@type': 'PostalAddress',
+          streetAddress: 'Pedro Montt 635',
+          addressLocality: 'Villarrica',
+          addressRegion: 'La Araucanía',
+          addressCountry: 'CL'
+        },
+        geo: {
+          '@type': 'GeoCoordinates',
+          latitude: -39.2837022,
+          longitude: -72.2277588
+        },
+        openingHoursSpecification: [
+          {
+            '@type': 'OpeningHoursSpecification',
+            dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+            opens: '10:00',
+            closes: '19:00'
+          },
+          {
+            '@type': 'OpeningHoursSpecification',
+            dayOfWeek: 'Saturday',
+            opens: '10:00',
+            closes: '14:00'
+          }
+        ],
+        sameAs: [
+          'https://www.instagram.com/olivervintagecl/',
+          'https://www.facebook.com/profile.php?id=100063597219507'
+        ],
+        priceRange: '$$',
+        currenciesAccepted: 'CLP',
+        paymentAccepted: 'Cash, Credit Card, Debit Card',
+        hasMap: 'https://www.google.com/maps/place/Oliver+Vintage/@-39.2837022,-72.2277588,21z'
+      })
+    }
+  ]
+})
 
 let lenis: any = null
 
