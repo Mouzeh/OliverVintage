@@ -6,6 +6,7 @@
       <NuxtPage />
     </main>
     <Footer />
+    <a
     
       href="https://www.instagram.com/olivervintagecl/"
       target="_blank"
