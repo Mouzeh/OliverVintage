@@ -34,8 +34,6 @@ useHead({
         name: 'Oliver Vintage',
         description: 'Tienda de moda circular y ropa americana en Villarrica, Chile.',
         url: 'https://www.olivervintage.cl',
-        logo: 'https://www.olivervintage.cl/favicon.png',
-        image: 'https://www.olivervintage.cl/images/hero.png',
         telephone: '+56920306235',
         email: 'olivervintagecl@gmail.com',
         address: {
@@ -53,7 +51,7 @@ useHead({
         openingHoursSpecification: [
           {
             '@type': 'OpeningHoursSpecification',
-            dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+            dayOfWeek: ['Monday','Tuesday','Wednesday','Thursday','Friday'],
             opens: '10:00',
             closes: '19:00'
           },
@@ -70,25 +68,24 @@ useHead({
         ],
         priceRange: '$$',
         currenciesAccepted: 'CLP',
-        paymentAccepted: 'Cash, Credit Card, Debit Card',
-        hasMap: 'https://www.google.com/maps/place/Oliver+Vintage/@-39.2837022,-72.2277588,21z'
+        paymentAccepted: 'Cash, Credit Card, Debit Card'
       })
     }
   ]
 })
 
-let lenis: any = null
+let lenis = null
 
 onMounted(async () => {
   const { default: Lenis } = await import('lenis')
   lenis = new Lenis({
     duration: 1.2,
-    easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
     orientation: 'vertical',
     gestureOrientation: 'vertical',
     smoothWheel: true,
   })
-  function raf(time: number) {
+  function raf(time) {
     lenis?.raf(time)
     requestAnimationFrame(raf)
   }
