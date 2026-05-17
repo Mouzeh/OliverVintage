@@ -309,9 +309,9 @@ const timeline = [
     desc: 'Pieza a pieza, cliente a cliente. El local fue creciendo en espacio, en identidad y en comunidad. La ropa americana y el estilo vintage encontraron su lugar en la Araucanía.'
   },
   {
-    tag: 'Hoy · 5 años',
+    tag: 'Hoy · 26 años',
     event: 'Oliver Vintage — referente de ropa americana y moda circular',
-    desc: 'Cinco años después somos el referente de ropa vintage, ropa americana y moda circular en Villarrica y toda la Araucanía. Seguimos siendo un matrimonio que selecciona cada pieza con el mismo amor del primer día.'
+    desc: 'Veintiséis años después somos el referente de ropa vintage, ropa americana y moda circular en Villarrica y toda la Araucanía. Seguimos siendo un matrimonio que selecciona cada pieza con el mismo amor del primer día.'
   },
 ]
 
