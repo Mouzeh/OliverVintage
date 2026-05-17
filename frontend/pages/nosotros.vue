@@ -46,7 +46,7 @@
         <div class="ns-hero__img-frame" aria-hidden="true" />
         <div class="ns-hero__img-badge">
           <span aria-hidden="true">✦</span>
-          5 años<br>en Villarrica
+          26 años<br>en Villarrica
         </div>
         <div class="ns-hero__img-tag">
           <span aria-hidden="true">♻</span>
@@ -323,7 +323,7 @@ const valores = [
 ]
 
 const stats = [
-  { num: '5+', label: 'años en Villarrica' },
+  { num: '26+', label: 'años en Villarrica' },
   { num: '100%', label: 'selección a mano' },
   { num: '♻', label: 'moda circular' },
 ]
@@ -375,7 +375,7 @@ useHead({
   meta: [
     {
       name: 'description',
-      content: 'Oliver Vintage: tienda de ropa americana, ropa vintage y moda circular en Villarrica, Araucanía. 5 años seleccionando piezas únicas a mano. Visítanos en Pedro Montt 635.'
+      content: 'Oliver Vintage: tienda de ropa americana, ropa vintage y moda circular en Villarrica, Araucanía. 26 años seleccionando piezas únicas a mano. Visítanos en Pedro Montt 635.'
     },
     {
       name: 'keywords',
