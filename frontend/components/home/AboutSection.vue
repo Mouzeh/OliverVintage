@@ -88,7 +88,7 @@
             <small>prendas<br>rescatadas</small>
           </div>
           <div class="story__figure">
-            <strong>6</strong>
+            <strong>26</strong>
             <small>años de<br>historia</small>
           </div>
           <div class="story__figure">

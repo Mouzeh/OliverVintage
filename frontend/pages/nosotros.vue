@@ -68,7 +68,7 @@
     <section class="ns-timeline-section">
       <div class="ns-timeline-wrap">
         <div class="ns-timeline-header" :class="{ visible: inView }">
-          <span class="ns-label">5 años de historia</span>
+          <span class="ns-label">26 años de historia</span>
           <h2 class="ns-timeline__title">
             De Boutique Oliver<br>
             <em>a Oliver Vintage.</em>
@@ -382,7 +382,7 @@ useHead({
       content: 'Oliver Vintage, ropa americana Villarrica, ropa vintage Araucanía, moda circular Villarrica, tienda vintage Villarrica Chile, ropa americana Araucanía, segunda mano Villarrica, boutique vintage Villarrica'
     },
     { property: 'og:title', content: 'Oliver Vintage — Ropa Americana y Vintage en Villarrica, Araucanía' },
-    { property: 'og:description', content: '5 años de historia, ropa americana auténtica y moda circular en el corazón de Villarrica, Araucanía.' },
+    { property: 'og:description', content: '26 años de historia, ropa americana auténtica y moda circular en el corazón de Villarrica, Araucanía.' },
     { property: 'og:type', content: 'website' },
     { name: 'robots', content: 'index, follow' },
   ],

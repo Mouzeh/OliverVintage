@@ -5,6 +5,7 @@
     <HomeFeaturedCategories :categories="featuredCategories" />
     <HomeLatestProducts :products="latestProducts" :loading="loading" />
     <HomeAboutSection />
+    <HomeSeoSection />
     <HomeCtaSection />
     <HomeFooter />
   </div>
