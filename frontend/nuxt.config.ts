@@ -145,7 +145,9 @@ export default defineNuxtConfig({
     },
     prerender: {
       failOnError: false,
-      routes: ['/']
+      // ✅ FIX: prerenderizar todas las páginas para que cada una
+      // genere su propio HTML con el canonical correcto
+      routes: ['/', '/nosotros', '/contacto', '/devoluciones']
     }
   },
 
