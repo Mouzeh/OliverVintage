@@ -339,9 +339,23 @@ async function submitForm() {
   }
 }
 
+// ✅ CORREGIDO: canonical y og:url agregados con www
 useHead({
-  title: 'Contacto — Oliver Vintage',
-  meta: [{ name: 'description', content: 'Contáctanos. Ropa americana y vintage en Villarrica, Chile.' }]
+  title: 'Contacto — Oliver Vintage | Villarrica, Chile',
+  meta: [
+    {
+      name: 'description',
+      content: 'Contáctanos. Ropa americana y vintage en Villarrica, Chile. Escríbenos por WhatsApp, correo o visítanos en Pedro Montt 635.'
+    },
+    { property: 'og:title', content: 'Contacto — Oliver Vintage' },
+    { property: 'og:description', content: 'Contáctanos. Ropa americana y vintage en Villarrica, Chile.' },
+    { property: 'og:type', content: 'website' },
+    { property: 'og:url', content: 'https://www.olivervintage.cl/contacto' },
+    { name: 'robots', content: 'index, follow' },
+  ],
+  link: [
+    { rel: 'canonical', href: 'https://www.olivervintage.cl/contacto' }
+  ]
 })
 </script>
 
@@ -365,9 +379,6 @@ useHead({
   overflow-x: hidden;
 }
 
-/* ══════════════════════════════
-   LABEL
-   ══════════════════════════════ */
 .ct-label {
   display: inline-block;
   font-size: 0.67rem;
@@ -386,9 +397,6 @@ useHead({
   background: var(--terra);
 }
 
-/* ══════════════════════════════
-   HERO
-   ══════════════════════════════ */
 .ct-hero {
   position: relative;
   height: 92vh;
@@ -397,7 +405,6 @@ useHead({
   overflow: hidden;
   display: flex;
   align-items: flex-end;
-
   opacity: 0;
   transition: opacity 1.1s ease 0.05s;
 }
@@ -436,7 +443,6 @@ useHead({
   max-width: 1200px;
   margin: 0 auto;
   width: 100%;
-
   transform: translateY(30px);
   transition: transform 1.1s cubic-bezier(0.22,1,0.36,1) 0.2s;
 }
@@ -497,9 +503,6 @@ useHead({
   50%       { transform: translateY(6px); }
 }
 
-/* ══════════════════════════════
-   BODY
-   ══════════════════════════════ */
 .ct-body {
   max-width: 1200px;
   margin: 0 auto;
@@ -513,7 +516,6 @@ useHead({
   align-items: start;
 }
 
-/* ── INFO izquierda ── */
 .ct-info {
   opacity: 0;
   transform: translateX(-36px);
@@ -539,7 +541,6 @@ useHead({
   max-width: 380px;
 }
 
-/* Datos */
 .ct-data { display: flex; flex-direction: column; gap: 0; margin-bottom: 2.5rem; }
 
 .ct-data__item {
@@ -548,7 +549,6 @@ useHead({
   gap: 1.1rem;
   padding: 1rem 0;
   border-bottom: 1px solid rgba(45,58,43,0.07);
-
   opacity: 0;
   transform: translateX(-16px);
   transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.22,1,0.36,1);
@@ -587,7 +587,6 @@ useHead({
 }
 .ct-data__val--link:hover { color: var(--terra); }
 
-/* Card dirección */
 .ct-map-card {
   position: relative;
   background: var(--postit);
@@ -596,7 +595,6 @@ useHead({
   border-left: 2px solid #ffe87a;
   box-shadow: 0 4px 10px rgba(0,0,0,0.06), 0 16px 32px -8px var(--shadow);
   transform: rotate(0.8deg);
-
   opacity: 0;
   transition: opacity 0.85s ease 0.75s, transform 0.4s cubic-bezier(0.34,1.3,0.64,1);
 }
@@ -678,7 +676,6 @@ useHead({
   gap: 0.75rem;
 }
 
-/* ── FORM derecha ── */
 .ct-form-wrap {
   opacity: 0;
   transform: translateX(40px);
@@ -730,9 +727,7 @@ useHead({
   margin: 0 0 2rem;
 }
 
-/* Campos */
 .ct-form { display: flex; flex-direction: column; gap: 1.35rem; }
-
 .ct-field { display: flex; flex-direction: column; gap: 0.45rem; }
 
 .ct-field__label {
@@ -783,7 +778,6 @@ useHead({
   padding-left: 0.2rem;
 }
 
-/* Botón */
 .ct-btn {
   display: inline-flex;
   align-items: center;
@@ -825,7 +819,6 @@ useHead({
   transform: none;
 }
 
-/* Spinner */
 .ct-spinner {
   display: inline-block;
   width: 18px; height: 18px;
@@ -836,7 +829,6 @@ useHead({
 }
 @keyframes spin { to { transform: rotate(360deg); } }
 
-/* Éxito / Error */
 .ct-success,
 .ct-error {
   display: flex;
@@ -872,9 +864,6 @@ useHead({
   margin: 0;
 }
 
-/* ══════════════════════════════
-   RESPONSIVE
-   ══════════════════════════════ */
 @media (max-width: 900px) {
   .ct-body__grid {
     grid-template-columns: 1fr;

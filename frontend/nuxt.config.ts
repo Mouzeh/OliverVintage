@@ -113,7 +113,7 @@ export default defineNuxtConfig({
         { property: 'og:type', content: 'website' },
         { property: 'og:title', content: 'Oliver Vintage - Moda Circular & Ropa Americana | Villarrica' },
         { property: 'og:description', content: 'Tienda de moda circular y ropa americana en Villarrica, Chile. Descubre prendas únicas, sostenibles y con estilo.' },
-        { property: 'og:url', content: 'https://www.olivervintage.cl' },
+        // ✅ og:url eliminado del global — cada página define el suyo
         { property: 'og:image', content: 'https://www.olivervintage.cl/images/hero.png' },
         { name: 'twitter:card', content: 'summary_large_image' },
         { name: 'twitter:title', content: 'Oliver Vintage - Moda Circular & Ropa Americana' },
@@ -124,7 +124,7 @@ export default defineNuxtConfig({
       link: [
         { rel: 'icon', type: 'image/png', href: '/favicon.png' },
         { rel: 'apple-touch-icon', href: '/favicon.png' },
-        { rel: 'canonical', href: 'https://www.olivervintage.cl' },
+        // ✅ canonical eliminado del global — cada página define el suyo
         { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
         { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' }
       ]

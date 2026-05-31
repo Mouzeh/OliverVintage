@@ -24,23 +24,21 @@
           <strong>Villarrica, Araucanía — Chile</strong>
         </p>
 
-        <!-- Pills SEO visibles -->
         <div class="ns-pills">
           <span v-for="pill in pills" :key="pill" class="ns-pill">{{ pill }}</span>
         </div>
       </div>
 
-      <!-- Imagen hero -->
       <div class="ns-hero__img-wrap" :class="{ visible: inView }">
         <div class="ns-hero__img-inner">
           <NuxtImg
-          src="/images/imagenesig/1.png"
-          alt="Oliver Vintage — tienda de ropa americana y vintage en Villarrica, Araucanía"
-          class="ns-hero__img"
-          preset="hero"
-          loading="eager"
-          fetchpriority="high"
-        />
+            src="/images/imagenesig/1.png"
+            alt="Oliver Vintage — tienda de ropa americana y vintage en Villarrica, Araucanía"
+            class="ns-hero__img"
+            preset="hero"
+            loading="eager"
+            fetchpriority="high"
+          />
           <div class="ns-hero__img-shine" aria-hidden="true" />
         </div>
         <div class="ns-hero__img-frame" aria-hidden="true" />
@@ -113,7 +111,6 @@
         <!-- ── IZQUIERDA ── -->
         <div class="ns-left" :class="{ visible: inView }">
 
-          <!-- Card matrimonio -->
           <article class="ns-card">
             <div class="ns-card__tape" aria-hidden="true" />
             <div class="ns-card__icon" aria-hidden="true">
@@ -136,7 +133,6 @@
             </p>
           </article>
 
-          <!-- Post-it valores -->
           <div class="ns-postit" :class="{ visible: inView }">
             <div class="ns-postit__tape" aria-hidden="true" />
             <div class="ns-postit__lines" aria-hidden="true" />
@@ -154,15 +150,14 @@
             </ul>
           </div>
 
-          <!-- Imagen 2 -->
           <div class="ns-img2-wrap" :class="{ visible: inView }">
             <NuxtImg
-            src="/images/imagenesig/2.png"
-            alt="Ropa americana y vintage en Oliver Vintage Villarrica — moda circular Araucanía"
-            class="ns-img2"
-            preset="product"
-            loading="lazy"
-          />
+              src="/images/imagenesig/2.png"
+              alt="Ropa americana y vintage en Oliver Vintage Villarrica — moda circular Araucanía"
+              class="ns-img2"
+              preset="product"
+              loading="lazy"
+            />
             <div class="ns-img2__overlay" aria-hidden="true" />
             <div class="ns-img2__badge">
               <span aria-hidden="true">♻</span>
@@ -182,7 +177,6 @@
             <em>tiene alma.</em>
           </h2>
 
-          <!-- Stats -->
           <div class="ns-stats">
             <div
               class="ns-stat"
@@ -196,7 +190,6 @@
             </div>
           </div>
 
-          <!-- Pilares -->
           <div class="ns-pillars">
             <div
               class="ns-pillar"
@@ -215,7 +208,6 @@
 
           <div class="ns-rule"><span /><em>✦</em><span /></div>
 
-          <!-- Datos -->
           <div class="ns-data-wrap">
             <div class="ns-data__tag">Encuéntranos en Villarrica</div>
             <ul class="ns-data__list">
@@ -370,6 +362,7 @@ const datos = [
   },
 ]
 
+// ✅ CORREGIDO: canonical y og:url con www
 useHead({
   title: 'Nosotros — Oliver Vintage | Ropa Americana y Vintage en Villarrica, Araucanía',
   meta: [
@@ -384,10 +377,11 @@ useHead({
     { property: 'og:title', content: 'Oliver Vintage — Ropa Americana y Vintage en Villarrica, Araucanía' },
     { property: 'og:description', content: '26 años de historia, ropa americana auténtica y moda circular en el corazón de Villarrica, Araucanía.' },
     { property: 'og:type', content: 'website' },
+    { property: 'og:url', content: 'https://www.olivervintage.cl/nosotros' },
     { name: 'robots', content: 'index, follow' },
   ],
   link: [
-    { rel: 'canonical', href: 'https://olivervintage.cl/nosotros' }
+    { rel: 'canonical', href: 'https://www.olivervintage.cl/nosotros' }
   ]
 })
 </script>
@@ -438,7 +432,6 @@ useHead({
   z-index: 0;
 }
 
-/* Grain */
 .ns-grain {
   position: fixed;
   inset: 0;
@@ -448,7 +441,6 @@ useHead({
   opacity: 0.35;
 }
 
-/* Número editorial */
 .ns-section-num {
   position: absolute;
   top: -0.08em; right: -0.02em;
@@ -467,7 +459,6 @@ useHead({
 }
 .ns-section-num.visible { opacity: 1; transform: translateX(0); }
 
-/* Label */
 .ns-label {
   display: inline-block;
   font-size: 0.62rem;
@@ -486,7 +477,6 @@ useHead({
   background: var(--terra);
 }
 
-/* ════════════ HERO ════════════ */
 .ns-hero {
   position: relative;
   z-index: 2;
@@ -540,7 +530,6 @@ useHead({
 }
 .ns-hero__sub strong { color: var(--ink); }
 
-/* Pills */
 .ns-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
 .ns-pill {
   font-size: 0.58rem;
@@ -557,7 +546,6 @@ useHead({
 }
 .ns-pill:hover { background: var(--terra-mid); border-color: rgba(192,110,82,0.5); }
 
-/* Hero imagen */
 .ns-hero__img-wrap {
   position: relative;
   flex-shrink: 0;
@@ -645,7 +633,6 @@ useHead({
   50%       { transform: translateY(-5px); }
 }
 
-/* ════════════ MARQUEE ════════════ */
 .ns-marquee {
   position: relative;
   z-index: 2;
@@ -675,7 +662,6 @@ useHead({
   to   { transform: translateX(-50%); }
 }
 
-/* ════════════ TIMELINE ════════════ */
 .ns-timeline-section {
   position: relative;
   z-index: 2;
@@ -793,7 +779,6 @@ useHead({
   margin: 0;
 }
 
-/* ════════════ BODY GRID ════════════ */
 .ns-body {
   position: relative;
   z-index: 2;
@@ -808,7 +793,6 @@ useHead({
   align-items: start;
 }
 
-/* Columna izquierda */
 .ns-left {
   opacity: 0;
   transform: translateX(-36px);
@@ -816,7 +800,6 @@ useHead({
 }
 .ns-left.visible { opacity: 1; transform: translateX(0); }
 
-/* Card */
 .ns-card {
   position: relative;
   background: var(--paper);
@@ -868,7 +851,6 @@ useHead({
 .ns-card__body em { font-style: italic; color: var(--ink); }
 .ns-card__body strong { color: var(--terra); font-weight: 600; }
 
-/* Post-it */
 .ns-postit {
   position: relative;
   background: var(--postit);
@@ -891,7 +873,6 @@ useHead({
 .ns-postit__values li { display: flex; align-items: center; gap: 0.65rem; font-size: clamp(0.75rem, 1.8vw, 0.82rem); color: var(--ink); line-height: 1.5; }
 .ns-postit__dot { width: 6px; height: 6px; border-radius: 50%; background: var(--terra); opacity: 0.65; flex-shrink: 0; }
 
-/* Imagen 2 */
 .ns-img2-wrap {
   position: relative;
   width: 100%;
@@ -913,7 +894,6 @@ useHead({
 .ns-img2__frame { position: absolute; inset: 10px -10px -14px 10px; border: 1.5px solid rgba(192,110,82,0.18); border-radius: 4px; z-index: -1; pointer-events: none; transition: transform 0.5s ease; }
 .ns-img2-wrap:hover .ns-img2__frame { transform: translate(4px, 4px); }
 
-/* Columna derecha */
 .ns-right {
   opacity: 0;
   transform: translateX(40px);
@@ -924,7 +904,6 @@ useHead({
 .ns-right__title { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 400; line-height: 1.1; color: var(--ink); margin: 0 0 1.75rem; }
 .ns-right__title em { font-style: italic; font-weight: 300; color: var(--terra); }
 
-/* Stats */
 .ns-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; margin-bottom: 2rem; }
 .ns-stat {
   background: var(--paper);
@@ -934,7 +913,7 @@ useHead({
   text-align: center;
   opacity: 0;
   transform: translateY(18px);
-  transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.22,1,0.36,1), box-shadow 0.3s ease, transform 0.3s ease;
+  transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.22,1,0.36,1), box-shadow 0.3s ease;
   box-shadow: 0 2px 8px var(--shadow);
 }
 .ns-stat.visible { opacity: 1; transform: translateY(0); }
@@ -942,7 +921,6 @@ useHead({
 .ns-stat__num { display: block; font-family: 'Playfair Display', serif; font-size: clamp(1.3rem, 3.5vw, 1.7rem); font-weight: 400; color: var(--terra); line-height: 1; margin-bottom: 0.4rem; }
 .ns-stat__label { font-size: clamp(0.54rem, 1.2vw, 0.62rem); letter-spacing: 0.15em; text-transform: uppercase; color: var(--ink-dim); line-height: 1.45; }
 
-/* Pilares */
 .ns-pillars { display: flex; flex-direction: column; }
 .ns-pillar {
   display: flex;
@@ -960,12 +938,10 @@ useHead({
 .ns-pillar strong { display: block; font-size: clamp(0.82rem, 2vw, 0.9rem); color: var(--ink); margin-bottom: 0.3rem; font-weight: 600; }
 .ns-pillar p { font-size: clamp(0.75rem, 1.8vw, 0.8rem); line-height: 1.82; color: var(--ink-dim); margin: 0; }
 
-/* Divider */
 .ns-rule { display: flex; align-items: center; gap: 0.8rem; margin: 1.75rem 0; }
 .ns-rule span { flex: 1; height: 1px; background: rgba(45,58,43,0.1); }
 .ns-rule em { font-style: normal; font-size: 0.7rem; color: var(--terra); opacity: 0.5; }
 
-/* Datos */
 .ns-data__tag { display: inline-block; font-size: 0.58rem; letter-spacing: 0.26em; text-transform: uppercase; color: var(--terra); border: 1px solid rgba(192,110,82,0.28); padding: 0.3rem 0.75rem; border-radius: 2rem; margin-bottom: 1.1rem; }
 .ns-data__list { list-style: none; padding: 0; margin: 0; }
 .ns-data__list li {
@@ -987,7 +963,6 @@ useHead({
 .ns-data__val--link { text-decoration: none; color: var(--ink); transition: color 0.2s; }
 .ns-data__val--link:hover { color: var(--terra); }
 
-/* CTA */
 .ns-cta {
   display: inline-flex;
   align-items: center;
@@ -1008,7 +983,6 @@ useHead({
 .ns-cta.visible { opacity: 1; transform: translateY(0); }
 .ns-cta:hover { color: var(--terra); border-color: var(--terra); gap: 1.2rem; }
 
-/* ════════════ CIERRE ════════════ */
 .ns-closing {
   position: relative;
   z-index: 2;
@@ -1029,7 +1003,6 @@ useHead({
 .ns-closing__quote em { color: var(--terra); font-weight: 400; }
 .ns-closing__sub { font-size: clamp(0.58rem, 1.4vw, 0.65rem); letter-spacing: 0.28em; text-transform: uppercase; color: var(--ink-dim); line-height: 2; margin: 0; }
 
-/* ════════════ RESPONSIVE ════════════ */
 @media (max-width: 900px) {
   .ns-hero { flex-direction: column; align-items: flex-start; gap: 2.5rem; }
   .ns-hero__inner { max-width: 100%; }
@@ -1067,7 +1040,6 @@ useHead({
   .ns-pill { font-size: 0.52rem; padding: 0.26rem 0.6rem; }
 }
 
-/* ════════════ REDUCED MOTION ════════════ */
 @media (prefers-reduced-motion: reduce) {
   .ns-hero, .ns-left, .ns-right,
   .ns-timeline-header, .ns-timeline__item,
