@@ -82,8 +82,13 @@ export default defineNuxtConfig({
     }
   },
 
-  // ✅ Headers de seguridad
+  // ✅ Headers de seguridad + prerender por ruta
   routeRules: {
+    // ✅ FIX: forzar HTML estático prerenderizado en Vercel
+    '/': { prerender: true },
+    '/nosotros': { prerender: true },
+    '/contacto': { prerender: true },
+    '/devoluciones': { prerender: true },
     '/**': {
       headers: {
         'X-Frame-Options': 'DENY',
@@ -145,8 +150,6 @@ export default defineNuxtConfig({
     },
     prerender: {
       failOnError: false,
-      // ✅ FIX: prerenderizar todas las páginas para que cada una
-      // genere su propio HTML con el canonical correcto
       routes: ['/', '/nosotros', '/contacto', '/devoluciones']
     }
   },
